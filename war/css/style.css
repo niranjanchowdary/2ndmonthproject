@@ -1,0 +1,58 @@
+@CHARSET "ISO-8859-1";
+
+
+
+form.main_frame {
+	margin-top: 48px;
+	border: outset;
+	box-sizing: content-box;
+	box-shadow: green;
+	margin-left: 590px;
+	margin-right: 590px;
+	padding: 10px 10px 10px 10px;
+}
+
+div.main_div_login {
+	margin-left: 1145px;
+	margin-top: 50px;
+	font-size: 23px;
+}
+
+div.main_form_div {
+	width: 80%;
+	font-size: large;
+	font-style: oblique;
+	font-family: monospace;
+	font-stretch: wider;
+}
+
+body {
+	border: dotted;
+	border-color: gray;
+	border-style: outset;
+	box-sizing: border-box;
+	background-attachment: local;
+	background-image: url("background.jpg");
+	background-size: cover;
+}
+
+center {
+	border-left-width: 400px;
+	border-right-width: 400px;
+	border-bottom-width: 400px;
+	border-top-width: 400px
+}
+
+div.main_div {
+	margin-top: -147px;
+	margin-right: 890px;
+	box-sizing: content-box;
+	border: outset;
+	width: 300px;
+	padding: 10px 10px 10px 10px;
+}
+
+div.border {
+	margin-top: -300px;
+	-webkit-margin-start: 1169px;
+}
