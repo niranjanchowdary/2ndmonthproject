@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script type="text/javascript" src="javascript/validation.js"></script>
-<body onload="document.main_frame.user_name.focus();">
+<body onload="document.main_frame.user_name.focus();" height=500px>
 	<div class="main_div_login">
 		<label>new user?</label>
 		<a href="/">
@@ -19,7 +19,7 @@
 		<h4 style="margin-top: 170px; font-size: 35px; color: purple;">
 			you want weapons?<br> we're in library! <b>BOOKS!</b> The best weapons in the world!
 		</h4>
-		<form name="main_frame" action="/librarymanagement" method="post" onsubmit="return validateDetais()">
+		<form name="main_frame" action="/librarymanagement" method="post" onclick="return validateDetais()" >
 			<div>
 				<label>userEmail</label> 
 				<input type="text" name="user_name" aline="middle"><span></span>
@@ -36,7 +36,7 @@
 		</form>
 
 	</center>
-	<footer style="margin-top: 100px;margin-left: 590px; font-size:20px ">
+	<footer style="margin-top: 109px ;margin-left: 590px; font-size:20px ">
 			&copy copyrights 2017-2018 full library
 	 </footer>
 

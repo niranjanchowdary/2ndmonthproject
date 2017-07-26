@@ -15,16 +15,16 @@ public class AdminPage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String operation = request.getParameter("select");
-		request.setAttribute("operation", operation);
+		request.setAttribute("operation", operation); 
 		HttpSession session = request.getSession(false);
-		String name = (String) session.getAttribute("name");
+		//String name =  session.getAttribute("name").toString();
 		if (operation.equals("add")) {
 			request.getRequestDispatcher("/addBook.jsp").include(request, response);
 		} else if (operation.equals("del")) {
 			request.getRequestDispatcher("/deleteBook.jsp").include(request, response);
 		} else if (operation.equals("logout")) {
 			session.invalidate();
-			response.sendRedirect("/login.jsp");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 
 	}

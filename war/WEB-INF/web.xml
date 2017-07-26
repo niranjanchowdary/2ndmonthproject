@@ -14,6 +14,47 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>com.library.Signup</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>user1</servlet-name>
+		<servlet-class>com.library.UserPage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user1</servlet-name>
+		<url-pattern>/userPage</url-pattern>
+	</servlet-mapping>
+		
+	
+	<servlet>
+  <servlet-name>add</servlet-name>
+ 
+  <jsp-file>/addme.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+  <servlet-name>add</servlet-name>
+  <url-pattern>/adding</url-pattern> 
+</servlet-mapping>
+	
+<servlet>
+  <servlet-name>del</servlet-name>
+ 
+  <jsp-file>/deleteme.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+  <servlet-name>del</servlet-name>
+  <url-pattern>/delete</url-pattern> 
+</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>Admin</servlet-name>
 		<servlet-class>com.library.AdminPage</servlet-class>
 	</servlet>

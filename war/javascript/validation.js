@@ -1,12 +1,14 @@
 function validateDetais() {
 		var user_name = document.main_frame.user_name.value;
 		var user_pass = document.main_frame.user_pass.value;
+		var flag=false;
 		if (check_user(user_name)) {
 			if (check(user_pass)) {
-
+				flag=true;
+      return flag;
 			}
 		}
-		return true;
+		return flag;
 	}
 
 	function check(user_pass) {

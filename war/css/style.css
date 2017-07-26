@@ -1,6 +1,15 @@
 @CHARSET "ISO-8859-1";
 
-
+form.addbook{
+	
+	margin-top:300px;
+	width:295px;
+	margin-left:600px;
+	 border:windowtext;
+	 border:3px; border-style:solid; 
+	 border-color:#FF0000;
+	 padding: 1em;
+}
 
 form.main_frame {
 	margin-top: 48px;

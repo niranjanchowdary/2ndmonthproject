@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="com.library.BookStore"%>
+<%@page import="com.library.*"%>
 <jsp:useBean id="addB" class="com.library.BookStore" scope="request" />
 <jsp:setProperty name="addB" property="*" />
 
@@ -10,27 +10,42 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<script>
+   function test(){
+var name= "<%=session.getAttribute("user")%>";
+if(name==null){
+	
+	window.location="login.jsp"
+}
+}
+ </script>
+
+<body onload="test()">
+
+
+
+
 	<%
 		String book = request.getParameter("book_name");
 	%>
 	<%
 		String book_details = request.getParameter("book_details");
 	%>
-	<%
-		request.setAttribute("bookname", book);
-		request.setAttribute("details", book_details);
-	%>
+	
 	
 	<% boolean value =BookStore.addBook(book, book_details);%>
-		<script>if (<%=value%> == true)
-			alert("added");
-		<%response.sendRedirect("/adminPage.jsp");%>
+		<% if (value == true){%>
+		<script type="text/javascript">
+    alert('book added to library');
+     </script>
+		<%request.getRequestDispatcher("/adminPage.jsp").include(request, response);	
+		}
 		else
-			alert("not added");
-		<%response.sendRedirect("/adminPage.jsp");%>
+		{%><script>
+		alert("not added may be book is there in that library");</script>
+		<%request.getRequestDispatcher("/adminPage.jsp").include(request, response);}%>
 		
-	</script>
+	
 
 
 </body>

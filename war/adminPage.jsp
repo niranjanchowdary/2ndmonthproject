@@ -7,35 +7,65 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+
+function checkUser(){
+	var name="<%=session.getAttribute("user")%>";
+	if(name!=null&&name=="niranjanm09@gmail.com"){
+		alert('success');
+		return true;
+	}
+	else {
+		alert("login first");
+		window.location="login.jsp"
+		return false;
+	}
+}
+
+
+function userprofile(){
+	var name='<%=session.getAttribute("user")%>';
+	var pass='<%=session.getAttribute("pass")%>';
+document.write("<b align=center style='margin-left:500px';>user name is "+name+" password is"+pass+"<b><br><hr>");	
+document.write("<a href='/adminPage.jsp' style='margin-left:700px;margin-top:60px';><button type='button'>back</button></a>");
+}
+
+
+</script>
 <body>
 
-	<%	
-		if (session != null) {
+	<%	 HttpSession session1=request.getSession(false);
+		if (session1 != null) {
 			
 	%>
 	<script type="text/javascript">
-var name=" <%=session.getAttribute("user")%>";
-var pass="<%=session.getAttribute("pass")%>";
+var name=" <%=session1.getAttribute("user")%>";
+var pass="<%=session1.getAttribute("pass")%>";
+
 	</script>
 
 	<%
-		} if(session.getAttribute("user")==null) {
+		} if(session1.getAttribute("user")==null) {
+			session1.removeAttribute("user");
+			session1.invalidate();
 			response.sendRedirect("/");
 		}
 	%>
-
-	<h3>signed in as<%=session.getValue("user")%></h3>
-	<form id="admin" action="/admin" method="post">
+	
+		
+	
+	
+	<h3 align="center">welcome to admin page</h3>
+	<hr>
+	<form id="admin" action="/admin" method="post" style="margin-top: 32px;" onsubmit=" return checkUser()">
 		<select name="select">
 			<option value="add">AddBook</option>
 			<option value="del">DeleteBook</option>
 			<option value="logout">LogOut</option>
 		</select> <input type="submit" value="ok">
+		
 	</form>
-	<div class="profile">
-	<button type="button">profile</button>
-	</div>
-
+<button type="button"onclick="return userprofile()" style="margin-left: 1200px; margin-top: -17px";>profile</button>
 
 </body>
 </html>

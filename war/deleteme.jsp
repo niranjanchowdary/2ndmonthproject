@@ -13,14 +13,20 @@
 	<%
 		String book = request.getParameter("book_name");
 	%>
-	<%
-		boolean value = BookStore.delBook(book);
-	%>
-	<script type="text/javascript">
-		if (<%=value%> == true)
-			alert("deleted");
+	
+	
+	
+	<% boolean value =BookStore.delBook(book);%>
+		<% if (value == true){%>
+		<script type="text/javascript">
+    alert('deleted from library');
+     </script>
+		<%request.getRequestDispatcher("/adminPage.jsp").include(request, response);	
+		}
 		else
-			alert("not deleted");
-	</script>
-</body>
-</html>
+		{%><script>
+		alert("not deleted may be book is not available");</script>
+		<%request.getRequestDispatcher("/adminPage.jsp").include(request, response);}%>
+		</body>
+		</html>
+	
