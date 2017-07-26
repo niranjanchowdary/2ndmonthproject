@@ -8,6 +8,7 @@
 </head>
 <script type="text/javascript">
 function userprofile(){
+	//checking user profile 
 	var name='<%=session.getAttribute("user")%>';
 	var pass='<%=session.getAttribute("pass")%>';
 document.write("<b align=center style='margin-left:500px';>user name is "+name+"<b><br><hr>");	
@@ -25,16 +26,12 @@ if(session==null||name==null)
 	%>
 <h1>signed in as<%= session.getValue("user")%></h1>
 <form action="/userPage" method="post">
-
 <select name="select1">
-<option value="buy">buy</option>
-<option value="show">show</option>
-<option value="logout">logout</option>
+	<option value="buy">buy</option>
+	<option value="show">show</option>
+	<option value="logout">logout</option>
 </select><input type="submit" value="ok">
 </form>
 <button type="button"onclick="return userprofile()" style="margin-left: 1200px; margin-top: -17px";>profile</button>
-
-
-
 </body>
 </html>

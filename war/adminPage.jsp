@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
-
+//checking user details 
 function checkUser(){
 	var name="<%=session.getAttribute("user")%>";
 	if(name!=null&&name=="niranjanm09@gmail.com"){
-		alert('success');
+		alert('successfully user is authentication is done');
 		return true;
 	}
 	else {
@@ -22,6 +22,7 @@ function checkUser(){
 	}
 }
 
+//user profile 
 
 function userprofile(){
 	var name='<%=session.getAttribute("user")%>';
@@ -29,32 +30,28 @@ function userprofile(){
 document.write("<b align=center style='margin-left:500px';>user name is "+name+" password is"+pass+"<b><br><hr>");	
 document.write("<a href='/adminPage.jsp' style='margin-left:700px;margin-top:60px';><button type='button'>back</button></a>");
 }
-
-
 </script>
 <body>
-
-	<%	 HttpSession session1=request.getSession(false);
-		if (session1 != null) {
-			
-	%>
+	
+	<%//checking session
+	HttpSession session1 = request.getSession(false);
+	if (session1 != null) {
+%>
 	<script type="text/javascript">
 var name=" <%=session1.getAttribute("user")%>";
 var pass="<%=session1.getAttribute("pass")%>";
-
 	</script>
 
 	<%
-		} if(session1.getAttribute("user")==null) {
+		} //checking user name with session
+		if (session1.getAttribute("user") == null) {
 			session1.removeAttribute("user");
 			session1.invalidate();
 			response.sendRedirect("/");
 		}
 	%>
-	
-		
-	
-	
+
+
 	<h3 align="center">welcome to admin page</h3>
 	<hr>
 	<form id="admin" action="/admin" method="post" style="margin-top: 32px;" onsubmit=" return checkUser()">
@@ -63,9 +60,9 @@ var pass="<%=session1.getAttribute("pass")%>";
 			<option value="del">DeleteBook</option>
 			<option value="logout">LogOut</option>
 		</select> <input type="submit" value="ok">
-		
+
 	</form>
-<button type="button"onclick="return userprofile()" style="margin-left: 1200px; margin-top: -17px";>profile</button>
+	<button type="button" onclick="return userprofile()" style="margin-left: 1200px; margin-top: -17px";>profile</button>
 
 </body>
 </html>

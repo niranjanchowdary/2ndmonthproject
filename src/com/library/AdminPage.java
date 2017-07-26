@@ -14,14 +14,17 @@ import javax.servlet.http.HttpSession;
 public class AdminPage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//fetching input from admin to do what type of an operation 
 		String operation = request.getParameter("select");
 		request.setAttribute("operation", operation); 
 		HttpSession session = request.getSession(false);
-		//String name =  session.getAttribute("name").toString();
+		//add operation to store books into store
 		if (operation.equals("add")) {
 			request.getRequestDispatcher("/addBook.jsp").include(request, response);
+			//delete operation to delete books from store 
 		} else if (operation.equals("del")) {
 			request.getRequestDispatcher("/deleteBook.jsp").include(request, response);
+			//logout admin from the site
 		} else if (operation.equals("logout")) {
 			session.invalidate();
 			request.getRequestDispatcher("/login.jsp").forward(request, response);

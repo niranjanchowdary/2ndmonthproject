@@ -8,9 +8,8 @@ public class BookStore{
 //hash map for library and user
 	final static HashMap<String, String> bookdetails = new HashMap<>();
 	final static HashMap<String, User> userdetails = new HashMap<>();
-	//adding books to library
-	
-	
+
+	//buy book method for user
 	public static boolean buyBook(String book){
 		boolean flag=false;
 		System.out.println("book buy"+book);
@@ -23,7 +22,7 @@ public class BookStore{
 		}else
 		return false;
 	}
-	
+	//adding boos to store 
 	public static boolean addBook(String book_name, String book_details) {
 		System.out.println("book_name  "+book_name+"  book_details   "+book_details);
 		if (!(bookdetails.containsKey(book_name))) {
@@ -57,7 +56,14 @@ public class BookStore{
 		return null;
 	}}
 	
-	//checking user is there or not 
+	//checking user details 
+	public static boolean checkUser(String user){
+		if(userdetails.containsKey(user))
+			return true;
+	else return false;
+	}
+	
+	//checking user is there or not then add 
 	public static boolean addUser(String name, String email, String pass, String re_pass) {
 		userdetails.put("niranjanm09@gmail.com", new User("niranjan","N!ranjany1","N!ranjany1"));
 		User object=new User(name,pass, re_pass);

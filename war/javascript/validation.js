@@ -1,3 +1,4 @@
+//checking user details to login
 function validateDetais() {
 		var user_name = document.main_frame.user_name.value;
 		var user_pass = document.main_frame.user_pass.value;
@@ -10,7 +11,7 @@ function validateDetais() {
 		}
 		return flag;
 	}
-
+//checking user pass word
 	function check(user_pass) {
 
 		re = /[0-9]/;
@@ -28,7 +29,7 @@ function validateDetais() {
 			return true;
 
 	}
-
+//checking user email
 	function check_user(username) {
 
 		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

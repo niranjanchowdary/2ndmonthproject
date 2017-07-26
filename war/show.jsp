@@ -14,11 +14,10 @@
 <body>
 
 <% HashMap<String,String> obj1 = BookStore.showBooks(); 
-
+//checking hash map object 
 if(obj1!=null){
 for(Map.Entry<String,String> obj:obj1.entrySet())
 	out.println( "book name is :"+obj.getKey() + " and details are :" +  obj.getValue()+"<br>");
-
 }
 else{%>
 	 <script>

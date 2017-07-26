@@ -9,9 +9,12 @@
 <title>DeleteBook</title>
 </head>
 <script type="text/javascript">
+
+//validating book and checking user
+
 function checkDelBook(){
 var bookname=document.delbook.book_name.value;
-
+//checking user details 
 var name= <%=session.getAttribute("user")%>;
 if(name!=null&& name=="niranjanm09@gmail.com"){
 	alert('user authentication successfully done');
@@ -25,7 +28,7 @@ else {
 }
 
 
-
+//checking book details 
 	if(isNaN(bookname)||bookname.length>0){
 		
 		return true;
@@ -40,7 +43,8 @@ else {
 }
 </script>
 <body>
-<%	
+
+<%	//checking session 
 HttpSession session1=request.getSession(false);
 		if (session1 != null) {
 			

@@ -13,7 +13,7 @@
 	function checkAddBook() {
 		var bookname = document.addbook.book_name.value;
 		var bookdetails = document.addbook.book_details.value;
-		
+		//checking user details
 			var name= "<%=session.getAttribute("user")%>";
 			if(name!=null && name=="niranjanm09@gmail.com"){
 				alert('user authentication is successfully done');
@@ -25,7 +25,7 @@
 				return false;
 			}
 		
-		
+		//validating book details 
 		if (isNaN(bookname) || bookname.length > 0) {
 			return true;
 		} else {
@@ -38,10 +38,10 @@
 	}
 </script>
 <body>
-	<%	
+
+	<%	//checking session 
 	 HttpSession session1=request.getSession(false);
-		if (session1 != null) {
-			
+		if (session1 != null) {		
 	%>
 	<script type="text/javascript">
 var name=" <%=session1.getAttribute("user")%>";
@@ -51,7 +51,8 @@ var pass="<%=session1.getAttribute("pass")%>";
 
 	<%
 		}else{
-		}if(session1.getAttribute("user")==null) {
+		}//checking user details
+		if(session1.getAttribute("user")==null) {
 			session1.removeAttribute("user");
 			response.sendRedirect("/");
 		}
@@ -59,16 +60,15 @@ var pass="<%=session1.getAttribute("pass")%>";
 
 	<label align="center"><h1>Adding Books to Library</h1> </label>
 	<hr>
-	<form name="addbook" action="/adding" display-name="admin" method="post"
-		onsubmit="return checkAddBook()" style="margin-left: 500px">
+	<form name="addbook" action="/adding" display-name="admin" method="post" onsubmit="return checkAddBook()" style="margin-left: 500px">
 
-		<label>enter book name :</label> <input type="text" name="book_name"><br>
+		<label>enter book name :</label> 
+		<input type="text" name="book_name"><br>
 		<br>
-		<br> <label>enter book details:</label> <input type="text"
-			name="book_details"><br> <br>
+		<br> <label>enter book details:</label>
+		<input type="text" name="book_details"><br> <br>
 		<br> <input type="submit" value="add" style="margin-left: 115px";>
 	</form>
-	<footer style="margin-top: 390px;margin-left: 590px; font-size:20px ">
-	&copy copyrights 2017-2018 full library </footer>
+	<footer style="margin-top: 390px;margin-left: 590px; font-size:20px ">&copy copyrights 2017-2018 full library </footer>
 </body>
 </html>

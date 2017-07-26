@@ -25,6 +25,7 @@ public void doPost(HttpServletRequest request,HttpServletResponse response) thro
 	else{
 		//error page 
 		response.sendError(403,"you dont have a permission to this site ");
+		response.getWriter().println("<a href='/index.html'><button type='button'>HOME</button></a>");
 	}
 	
 }

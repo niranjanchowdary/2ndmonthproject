@@ -36,9 +36,7 @@
 		</form>
 
 	</center>
-	<footer style="margin-top: 109px ;margin-left: 590px; font-size:20px ">
-			&copy copyrights 2017-2018 full library
-	 </footer>
+	<footer style="margin-top: 109px ;margin-left: 590px; font-size:20px ">&copy copyrights 2017-2018 full library </footer>
 
 </body>
 </html>

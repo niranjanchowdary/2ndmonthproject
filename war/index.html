@@ -17,21 +17,19 @@
 <body onload="document.main_form1.user.focus();">
 	<h4 style="color:green; margin-left: 490px;margin-top: 300px;font-size: 23px;">A Library is a hospital for the mind..</h4>
 	<div class="border">
-	 <a href="/login.jsp">
-		<button type="button" style="font-size: larger;">login</button>
-	 </a>
-	 <a href="/#">
-	 	<button type="button" style="font-size: larger;">sign up</button>
-	 </a>
+		<a href="/login.jsp">
+			<button type="button" style="font-size: larger;">login</button>
+		</a>
+		<a href="/#">
+			<button type="button" style="font-size: larger;">sign up</button>
+		</a>
 	</div>
 
 	<label style="margin-left: 150; font-size: 30pt; color: black;">Signup</label>
 
 	<center style="margin-top: 169px">
 		<div class="main_div">
-
 			<form name="main_form1" action="/signup" method="post" onsubmit="return checkDetails()">
-
 				<div class="main_form_div">
 					<label>User Name</label> <span></span> <br> <br> 
 					<input type="text" name="user" align="middle">

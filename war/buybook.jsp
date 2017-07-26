@@ -10,12 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
+<%	//buying book from store 
 			String book = request.getParameter("bookbuy").toString();
 		
 			boolean value = BookStore.buyBook(book);
 		
 			if (value == true) {
+				//value true then book sold fromlibrary
 		%>
 		<script type="text/javascript">
 			alert('thank you for buying book from our store');
@@ -24,6 +25,7 @@
 		<%
 			
 			} else {
+				//else book is not there or book details may be wrong
 		%><script>
 			alert("sorry book is not there in that library or may be library is empty ");
 			window.location="userPage.jsp"

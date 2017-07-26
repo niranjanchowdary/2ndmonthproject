@@ -11,14 +11,17 @@
 <title>Insert title here</title>
 </head>
 <script>
-   function test(){
-var name= "<%=session.getAttribute("user")%>";
-if(name==null){
-	
-	window.location="login.jsp"
-}
-}
- </script>
+
+function test(){
+	//checking user details 
+var name= "<%=session.getAttribute("user")%>
+	";
+		if (name == null) {
+
+			window.location = "login.jsp"
+		}
+	}
+</script>
 
 <body onload="test()">
 
@@ -27,25 +30,27 @@ if(name==null){
 
 	<%
 		String book = request.getParameter("book_name");
-	%>
-	<%
 		String book_details = request.getParameter("book_details");
+		boolean value = BookStore.addBook(book, book_details);
+		if (value == true) {
+			//value is true then book is added to library
 	%>
-	
-	
-	<% boolean value =BookStore.addBook(book, book_details);%>
-		<% if (value == true){%>
-		<script type="text/javascript">
-    alert('book added to library');
-     </script>
-		<%request.getRequestDispatcher("/adminPage.jsp").include(request, response);	
+	<script type="text/javascript">
+		alert('book added to library');
+	</script>
+	<%
+		request.getRequestDispatcher("/adminPage.jsp").include(request, response);
+		} else {
+			//book is not added to library
+	%><script>
+			alert("not added may be book is there in that library");
+		</script>
+	<%
+		request.getRequestDispatcher("/adminPage.jsp").include(request, response);
 		}
-		else
-		{%><script>
-		alert("not added may be book is there in that library");</script>
-		<%request.getRequestDispatcher("/adminPage.jsp").include(request, response);}%>
-		
-	
+	%>
+
+
 
 
 </body>
